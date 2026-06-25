@@ -32,7 +32,7 @@ CHARACTERS_DB = {
     },
     "details": {
         "alexia": (
-            "👩 *А Л Е К С И Я   Р И В Е Р А*\n\n"
+            "*А Л Е К С И Я   Р И В Е Р А*\n\n"
             "*Полное имя:* Алексия Рене Ривера\n"
             "*Роль:* Пилот Hitech Grand Prix (F2)\n"
             "*Возраст:* 18 лет | *Рост:* 163 см | *Родина:* Монако\n\n"
@@ -59,7 +59,7 @@ CHARACTERS_DB = {
             "4. На заставке телефона — фото Алексии со смешной гримасой в толстовке Юри"
         ),
         "yuri": (
-            "🏎️ *Ю Р И   В И П С*\n\n"
+            "*Ю Р И   В И П С*\n\n"
             "*Полное имя:* Юри Випс\n"
             "*Роль:* Пилот Hitech Grand Prix (F2)\n"
             "*Возраст:* 20 лет | *Рост:* 181 см | *Родина:* Таллин\n\n"
@@ -87,7 +87,7 @@ CHARACTERS_DB = {
             "5. Тайно следит за Инстаграмом Алексии, оставляя редкие комментарии."
         ),
         "franz": (
-            "📊 *Ф Р А Н Ц*\n\n"
+            "*Ф Р А Н Ц*\n\n"
             "*Имя:* Франц Майер\n"
             "*Роль:* Старший инженер Алексии\n"
             "*Возраст:* 54 года | *Родина:* Штутгарт\n\n"
@@ -107,7 +107,7 @@ CHARACTERS_DB = {
             "2. Носит одни ботинки 15 лет «на удачу»."
         ),
         "charles": (
-            "💼 *Ш А Р Л Ь   Р И В Е Р А*\n\n"
+            "*Ш А Р Л Ь   Р И В Е Р А*\n\n"
             "*Имя:* Шарль Марти Ривера\n"
             "*Роль:* Отец Алексии\n"
             "*Профессия:* Владелец логистической компании\n\n"
@@ -127,7 +127,7 @@ CHARACTERS_DB = {
             "2. Тайно ведет статистику всех гонок дочери в блокноте."
         ),
         "charlotte": (
-            "🎨 *Ш А Р Л О Т Т А   Р И В Е Р А*\n\n"
+            "*Ш А Р Л О Т Т А   Р И В Е Р А*\n\n"
             "*Имя:* Шарлотта Рене Ривера\n"
             "*Роль:* Мать Алексии\n"
             "*Профессия:* Дизайнер интерьеров\n\n"
@@ -213,8 +213,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_chat_action(chat_id=update.effective_chat.id, action=ChatAction.TYPING)
     
     keyboard = [
-        [KeyboardButton("👥 Персонажи"), KeyboardButton("📅 Календарь сезона")],
-        [KeyboardButton("⭐ Оценить главу"), KeyboardButton("💰 Поддержать автора")]
+        [KeyboardButton("Персонажи"), KeyboardButton("Календарь сезона")],
+        [KeyboardButton("Оценить главу"), KeyboardButton("Поддержать автора")]
     ]
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
     
@@ -362,8 +362,8 @@ async def back_to_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
     
     keyboard = [
-        [KeyboardButton("👥 Персонажи"), KeyboardButton("📅 Календарь сезона")],
-        [KeyboardButton("⭐ Оценить главу"), KeyboardButton("💰 Поддержать автора")]
+        [KeyboardButton("Персонажи"), KeyboardButton("Календарь сезона")],
+        [KeyboardButton("Оценить главу"), KeyboardButton("Поддержать автора")]
     ]
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
     
@@ -376,10 +376,10 @@ def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("notify", notify_subscribers))
 
-    application.add_handler(MessageHandler(filters.Regex("^👥 Персонажи$"), characters_menu))
-    application.add_handler(MessageHandler(filters.Regex("^📅 Календарь сезона$"), calendar))
-    application.add_handler(MessageHandler(filters.Regex("^⭐ Оценить главу$"), rate_chapter))
-    application.add_handler(MessageHandler(filters.Regex("^💰 Поддержать автора$"), support_author))
+    application.add_handler(MessageHandler(filters.Regex("^Персонажи$"), characters_menu))
+    application.add_handler(MessageHandler(filters.Regex("^Календарь сезона$"), calendar))
+    application.add_handler(MessageHandler(filters.Regex("^Оценить главу$"), rate_chapter))
+    application.add_handler(MessageHandler(filters.Regex("^Поддержать автора$"), support_author))
 
     application.add_handler(CallbackQueryHandler(show_character, pattern="^char_"))
     application.add_handler(CallbackQueryHandler(handle_rating, pattern="^rate_[1-5]$"))
