@@ -1,0 +1,1 @@
+# f2-fanfic-bot
